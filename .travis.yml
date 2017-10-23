@@ -1,0 +1,18 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+
+before_script:
+  - export DB_HOST=localhost
+  - export DB_DATABASE=wordpress
+  - export DB_USERNAME=root
+  - export DB_PASSWORD=
+  - mysql -e 'create database wordpress;'
+  - composer self-update
+  - composer install
+
+script:
+  - vendor/bin/phpunit

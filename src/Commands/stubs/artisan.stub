@@ -1,0 +1,10 @@
+if (! defined('ABSPATH')) {
+    define('ABSPATH', __DIR__.'/../../../');
+}
+
+require_once ABSPATH.'wp-load.php';
+
+if (dirname(get_option('template')) != basename(__DIR__)) {
+    printf("\\033[0;31mThe current theme is not %s\\033[0m\n", basename(__DIR__));
+    exit;
+}

@@ -1,0 +1,24 @@
+{
+    "name": "lumenpress/framework",
+    "require": {
+        "php": ">=5.6.4",
+        "lumenpress/nimble": "^0.1.1"
+    },
+    "require-dev": {
+        "laravel/lumen-framework": ">=5.4",
+        "lumenpress/testing": "^0.2.0",
+        "kint-php/kint": "^2.2",
+        "phpunit/phpunit": "^5.7",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LumenPress\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LumenPress\\Tests\\": "tests"
+        }
+    }
+}

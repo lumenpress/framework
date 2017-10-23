@@ -1,0 +1,9 @@
+
+putenv('APP_DEBUG='.(WP_DEBUG?'true':'false'));
+putenv('DB_CONNECTION=mysql');
+putenv('DB_HOST='.DB_HOST);
+putenv('DB_DATABASE='.DB_NAME);
+putenv('DB_USERNAME='.DB_USER);
+putenv('DB_PASSWORD='.DB_PASSWORD);
+putenv('DB_PREFIX='.$GLOBALS['table_prefix']);
+putenv('APP_TIMEZONE='.get_option('timezone_string'));

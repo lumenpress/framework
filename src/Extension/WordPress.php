@@ -27,12 +27,12 @@ class WordPress extends Twig_Extension implements Twig_Extension_GlobalsInterfac
     {
         return [
             'wp' => Helper::wrap(['wp_', 'wp_get_'], [
-                'options' => function () {
-                    return Option::getInstance();
-                },
-                'menus' => function () {
-                    return Menu::getInstance();
-                },
+                // 'options' => function () {
+                //     return Option::getInstance();
+                // },
+                // 'menus' => function () {
+                //     return Menu::getInstance();
+                // },
             ]),
             'is' => Helper::wrap(['is_', 'wp_is_'], [
                 'php' => true,
@@ -47,7 +47,7 @@ class WordPress extends Twig_Extension implements Twig_Extension_GlobalsInterfac
     {
         return [
             new Twig_SimpleFilter('site_url', 'home_url'),
-            new Twig_SimpleFilter('asset', [$this, 'assetUrl'], ['is_safe' => ['html']]),
+            new Twig_SimpleFilter('asset_url', [$this, 'assetUrl'], ['is_safe' => ['html']]),
         ];
     }
 
@@ -58,7 +58,7 @@ class WordPress extends Twig_Extension implements Twig_Extension_GlobalsInterfac
     {
         return [
             new Twig_SimpleFunction('site_url', 'home_url'),
-            new Twig_SimpleFunction('asset', [$this, 'assetUrl'], ['is_safe' => ['html']]),
+            new Twig_SimpleFunction('asset_url', [$this, 'assetUrl'], ['is_safe' => ['html']]),
         ];
     }
 

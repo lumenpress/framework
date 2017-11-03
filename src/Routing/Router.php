@@ -616,7 +616,11 @@ class Router
 
         switch (get_class($object)) {
             case 'WP_Post':
-                $class = Post::getClassNameByType($object->post_type, Post::class);
+                if ($template = get_page_template_slug()) {
+                    $class = config("nimble.post_templates.{$template}.model");
+                } else {
+                    $class = Post::getClassNameByType($object->post_type, Post::class);
+                }
                 $object = $class::find($object->ID);
                 break;
             case 'WP_Term':

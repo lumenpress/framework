@@ -12,10 +12,12 @@ class LumenPressServiceProvider extends ServiceProvider
         $this->registerCommands();
 
         if ($this->isLumen()) {
+            $this->app->configure('theme');
             $this->app->configure('nimble');
             $this->app->configure('assets');
         }
 
+        $this->app->register(ThemeServiceProvider::class);
         $this->app->register(RoutingServiceProvider::class);
         $this->app->register(NimbleServiceProvider::class);
         $this->app->register(AssetServiceProvider::class);

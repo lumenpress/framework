@@ -35,7 +35,9 @@ class Helper
             $this->extension[$key] = is_null($value = $this->$key()) ? '' : $value;
         }
 
-        return $this->extension[$key];
+        return is_callable($this->extension[$key])
+            ? call_user_func($this->extension[$key])
+            : $this->extension[$key];
     }
 
     public function __call($key, $args = [])

@@ -66,16 +66,6 @@ class AssetServiceProvider extends ServiceProvider
     }
 
     /**
-     * Check if we are running Lumen or not.
-     *
-     * @return bool
-     */
-    protected function isLumen()
-    {
-        return stripos($this->app->version(), 'Lumen') !== false;
-    }
-
-    /**
      * Load the configuration files and allow them to be published.
      *
      * @return void

@@ -27,12 +27,12 @@ class WordPress extends Twig_Extension implements Twig_Extension_GlobalsInterfac
     {
         return [
             'wp' => Helper::wrap(['wp_', 'wp_get_'], [
-                // 'options' => function () {
-                //     return Option::getInstance();
-                // },
-                // 'menus' => function () {
-                //     return Menu::getInstance();
-                // },
+                'options' => function () {
+                    return Option::getInstance();
+                },
+                'menus' => function () {
+                    return Menu::get();
+                },
             ]),
             'is' => Helper::wrap(['is_', 'wp_is_'], [
                 'php' => true,
